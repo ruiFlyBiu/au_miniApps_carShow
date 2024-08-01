@@ -62,7 +62,7 @@ CREATE TABLE `tb_vehicle` (
 `create_time`  datetime NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
 `update_time`  datetime NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
 PRIMARY KEY (`id`),
-UNIQUE INDEX `unique_make_model` (`vehicle_make`, `vehicle_model`)
+UNIQUE INDEX `unique_make_model` (`vehicle_make`, `vehicle_model`) ,
 INDEX `index_tag_vehicleMake` (`tag`, `vehicle_make`) ,
 INDEX `index_tag_vehicleModel` (`tag`, `vehicle_model`)
 )

@@ -1,0 +1,56 @@
+server:
+  port : 9001
+  servlet :
+    encoding:
+      charset: utf-8
+      force: true
+
+logging:
+  #  level:
+  #    root: DEBUG
+  config: classpath:logback.xml
+
+spring:
+  profiles:
+    actives: default
+
+  application:
+    name: carShow
+
+  aop:
+    proxy-target-class: true
+
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 100MB
+
+  flyway:
+    baseline-on-migrate: true
+    baseline-version: 0
+    locations: classpath:db
+
+  datasource:
+    hikari:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://127.0.0.1:3307/au?createDatabaseIfNotExist=true&zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&rewriteBatchedStatements=true&tinyInt1isBit=false&useSSL=false&serverTimezone=Asia/Shanghai
+      minimum-idle: 2
+      maximum-pool-size: 10
+      idle-timeout: 300000
+      connection-timeout: 30000
+      leak-detection-threshold: 300000
+      max-lifetime: 1200000
+      connection-test-query: select 1
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/mysql/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    call-setters-on-nulls: true
+
+config:
+  oss:
+    endpoint: 1
+    accessKeyId: 1
+    accessKeySecret: 1
+    bucketName: 1
